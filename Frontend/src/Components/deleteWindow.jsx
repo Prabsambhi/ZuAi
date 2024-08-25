@@ -10,7 +10,7 @@ const DeleteWindow = ({ id, onClose }) => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/posts/delete-post/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/posts/delete-post/${id}`
       );
       if (res.data.success) {
         toast.success("Event Deleted");

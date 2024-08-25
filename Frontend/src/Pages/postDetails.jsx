@@ -15,7 +15,7 @@ const PostDetails = () => {
   const getSinglePost = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/posts/single-post/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/posts/single-post/${id}`
       );
       setPost(data?.post);
     } catch (error) {

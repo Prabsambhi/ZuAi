@@ -8,7 +8,7 @@ const Home = () => {
 
   const getAllPosts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/posts/all-posts");
+      const { data } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/posts/all-posts`);
       setPosts(data?.posts);
     } catch (error) {
       console.log(error);

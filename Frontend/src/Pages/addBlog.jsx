@@ -17,7 +17,7 @@ const AddBlog = () => {
     console.log(file);
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/posts/upload",
+        `${import.meta.env.VITE_BACKEND_URL}/posts/upload`,
         formData
       );
       setCoverImage({
@@ -41,7 +41,7 @@ const AddBlog = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:3000/posts/create-post", {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/posts/create-post`, {
         title,
         author,
         content,

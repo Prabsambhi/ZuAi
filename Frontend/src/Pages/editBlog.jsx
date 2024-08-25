@@ -19,7 +19,7 @@ const EditBlog = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/posts/upload",
+        `${import.meta.env.VITE_BACKEND_URL}/posts/upload`,
         formData
       );
       setCoverImage({
@@ -37,7 +37,7 @@ const EditBlog = () => {
   const getSinglePost = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/posts/single-post/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/posts/single-post/${id}`
       );
 
       setTitle(data?.post?.title);
@@ -58,7 +58,7 @@ const EditBlog = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.put(`http://localhost:3000/posts/update-post/${id}`, {
+      const res = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/posts/update-post/${id}`, {
         title,
         author,
         content,
